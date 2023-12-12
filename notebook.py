@@ -483,7 +483,7 @@ class Canvas_min_max(Canvas):
     """MinMax for Fig52Extended on HTML canvas"""
 
     def __init__(self, varname, util_list, width=800, height=600, cid=None):
-        super.__init__(varname, width, height, cid)
+        super(self).__init__(varname, width, height, cid)
         self.utils = {node: util for node, util in zip(range(13, 40), util_list)}
         self.game = Fig52Extended()
         self.game.utils = self.utils
@@ -1061,7 +1061,7 @@ def plot_NQueens(solution):
     board = np.array([2 * int((i + j) % 2) for j in range(n) for i in range(n)]).reshape((n, n))
     im = Image.open('images/queen_s.png')
     height = im.size[1]
-    im = np.array(im).astype(np.float) / 255
+    im = np.array(im).astype(float) / 255
     fig = plt.figure(figsize=(7, 7))
     ax = fig.add_subplot(111)
     ax.set_title('{} Queens'.format(n))
